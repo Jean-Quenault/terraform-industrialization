@@ -2,10 +2,17 @@ provider "aws" {
     region = "eu-west-3"
 }
 
-resource "aws_instance" "my_ec2_instance" {
-    ami = "ami-0302f42a44bf53a45"
-    instance_type = "t2.micro"
-    tags = {
-        Name = "terraform test"
-    }
+
+# Variable "vpc_id" is passed to the module "front". Variable declared in ./variable.tf and defined in ./terraform.ttvars.
+# "Front" module received this variable in his own ./modules/front/variable.tf file.
+
+module "front" {
+  source  = "./modules/front"
+  vpc_id  = var.vpc_id
 }
+
+module "back" {
+  source  = "./modules/back"
+  vpc_id  = var.vpc_id
+}
+
