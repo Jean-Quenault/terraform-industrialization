@@ -8,7 +8,7 @@ resource "aws_security_group" "front_asg" {
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
-    security_groups = ["front_lb"]
+    security_groups = [aws_security_group.front_lb.id]
   }
 
   egress {

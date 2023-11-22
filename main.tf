@@ -7,12 +7,17 @@ provider "aws" {
 # "Front" module received this variable in his own ./modules/front/variable.tf file.
 
 module "front" {
-  source  = "./modules/front"
-  vpc_id  = var.vpc_id
+  source            = "./modules/front"
+  vpc_id            = var.vpc_id
+  region            = var.region
+  ecr_url           =var.ecr_url
+  front_port        ="80"
+  front_image       ="front"
+  front_image_tag   ="13"
 }
 
 module "back" {
-  source  = "./modules/back"
-  vpc_id  = var.vpc_id
+  source            = "./modules/back"
+  vpc_id            = var.vpc_id
 }
 
