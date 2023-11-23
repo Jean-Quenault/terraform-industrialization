@@ -1,23 +1,23 @@
 resource "aws_launch_template" "front" {
   # Name of the launch template
-  name          = "front"
+  name                  = "front"
 
   # ID of the Amazon Machine Image (AMI) to use for the instance
-  image_id      = "ami-066be587ddea5d4ed"
+  image_id              = "ami-066be587ddea5d4ed"
 
   # Instance type for the EC2 instance
-  instance_type = "t2.micro"
+  instance_type         = "t2.micro"
 
   # Block device mappings for the instance
   block_device_mappings {
-    device_name = "/dev/sda1"
+    device_name         = "/dev/sda1"
 
     ebs {
       # Size of the EBS volume in GB
-      volume_size = 8
+      volume_size       = 8
 
       # Type of EBS volume (General Purpose SSD in this case)
-      volume_type = "gp2"
+      volume_type       = "gp2"
     }
   }
 
@@ -27,7 +27,7 @@ resource "aws_launch_template" "front" {
     associate_public_ip_address = true
 
     # Security groups to associate with the instance
-    security_groups = [aws_security_group.front_asg.id]
+    security_groups     = [aws_security_group.front_asg.id]
   }
 
     user_data = base64encode(<<EOF
@@ -37,11 +37,14 @@ resource "aws_launch_template" "front" {
     EOF
     )
 
+  iam_instance_profile {
+        arn             = aws_iam_instance_profile.front_instance_profile.arn
+    }
   
   # Tag specifications for the instance
   tag_specifications {
     # Specifies the resource type as "instance"
-    resource_type = "instance"
+    resource_type       = "instance"
 
     # Tags to apply to the instance
     tags = {
