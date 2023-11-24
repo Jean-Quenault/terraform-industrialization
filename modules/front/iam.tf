@@ -29,6 +29,7 @@ resource "aws_iam_role_policy" "front_policy" {
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
+                "s3:*",
                 "ecr:GetRegistryPolicy",
                 "ecr:DescribeImageScanFindings",
                 "ecr:GetLifecyclePolicyPreview",
