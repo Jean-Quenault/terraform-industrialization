@@ -10,7 +10,7 @@ variable "region" {
   type        = string
 }
 
-variable "ecr_url" {
+variable "ecr_front_url" {
   description = "L'URL du dépôt Elastic Container Registry"
   type        = string
 }

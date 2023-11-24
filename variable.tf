@@ -10,8 +10,15 @@ variable "region" {
   type        = string
 }
 
-variable "ecr_url" {
-  description = "ECR URL"
+variable "subnet" {
+  description = "Front and back load balancer subnet"
+  type        = string
+}
+
+// Front 
+
+variable "ecr_front_url" {
+  description = "ECR front URL"
   type        = string
 }
 
@@ -20,7 +27,10 @@ variable "certificate_front" {
   type        = string
 }
 
-variable "subnet" {
-  description = "Front and back load balancer subnet"
+
+// Back 
+
+variable "ecr_back_url" {
+  description = "ECR front URL"
   type        = string
 }

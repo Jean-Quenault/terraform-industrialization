@@ -10,7 +10,7 @@ module "front" {
   source            = "./modules/front"
   vpc_id            = var.vpc_id
   region            = var.region
-  ecr_url           = var.ecr_url
+  ecr_front_url     = var.ecr_front_url
   certificate_front = var.certificate_front
   subnet            = var.subnet
   front_port        ="80"
@@ -20,6 +20,11 @@ module "front" {
 
 module "back" {
   source            = "./modules/back"
+  region            = var.region
   vpc_id            = var.vpc_id
   subnet            = var.subnet
+  ecr_back_url      = var.ecr_back_url
+  back_port        ="4000"
+  back_image       ="back"
+  back_image_tag   ="13"
 }
