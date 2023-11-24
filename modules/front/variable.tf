@@ -1,7 +1,7 @@
 # Reception of vpc_id variable.
 
 variable "vpc_id" {
-  description = "The ID of the existing VPC"
+  description = "The ID of the choosen VPC"
   type        = string
 }
 
@@ -27,5 +27,10 @@ variable "front_image" {
 
 variable "front_image_tag" {
   description = "Le tag de l'image Docker pour le service frontal"
+  type        = string
+}
+
+variable "certificate_front" {
+  description = "Front certificate ARN"
   type        = string
 }

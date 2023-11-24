@@ -1,4 +1,4 @@
-data "aws_acm_certificate" "cert_front" {
+data "aws_acm_certificate" "certificate_front_arn" {
   domain   = "front.jeanops.net"
   statuses = ["ISSUED"]
 }
@@ -32,7 +32,7 @@ resource "aws_lb_listener" "https" {
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-TLS13-1-2-2021-06"
-  certificate_arn   = data.aws_acm_certificate.cert_front.arn
+  certificate_arn   = var.certificate_front 
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.front_tg.arn

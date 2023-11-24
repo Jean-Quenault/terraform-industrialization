@@ -15,7 +15,7 @@ variable "ecr_url" {
   type        = string
 }
 
-variable "cert_front_arn" {
-  description = "ARN SSL front certificate"
+variable "certificate_front" {
+  description = "Front certificate ARN"
   type        = string
 }

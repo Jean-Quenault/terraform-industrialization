@@ -11,6 +11,7 @@ module "front" {
   vpc_id            = var.vpc_id
   region            = var.region
   ecr_url           = var.ecr_url
+  certificate_front = var.certificate_front
   front_port        ="80"
   front_image       ="front"
   front_image_tag   ="13"
