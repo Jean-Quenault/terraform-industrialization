@@ -14,3 +14,8 @@ variable "ecr_url" {
   description = "ECR URL"
   type        = string
 }
+
+variable "cert_front_arn" {
+  description = "ARN SSL front certificate"
+  type        = string
+}
