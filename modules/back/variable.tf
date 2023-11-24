@@ -5,7 +5,7 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "subnet" {
+variable "subnets" {
   description = "Front and back load balancer subnet"
   type        = string
 }

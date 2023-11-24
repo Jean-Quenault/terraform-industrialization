@@ -10,6 +10,11 @@ variable "region" {
   type        = string
 }
 
+variable "subnets" {
+  description = "Liste de subnets"
+  type        = list(string)
+}
+
 variable "ecr_front_url" {
   description = "L'URL du dépôt Elastic Container Registry"
   type        = string
@@ -32,10 +37,5 @@ variable "front_image_tag" {
 
 variable "certificate_front" {
   description = "Front certificate ARN"
-  type        = string
-}
-
-variable "subnet" {
-  description = "Front and back load balancer subnet"
   type        = string
 }

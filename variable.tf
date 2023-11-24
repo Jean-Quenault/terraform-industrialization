@@ -10,14 +10,17 @@ variable "region" {
   type        = string
 }
 
-variable "subnet" {
-  description = "Front and back load balancer subnet"
+variable "subnet1" {
+  description = "ID du premier sous-réseau"
   type        = string
 }
 
+variable "subnet2" {
+  description = "ID du deuxième sous-réseau"
+  type        = string
+}
 
-
-/* 
-
-
-*/
+variable "subnet3" {
+  description = "ID du troisième sous-réseau"
+  type        = string
+}

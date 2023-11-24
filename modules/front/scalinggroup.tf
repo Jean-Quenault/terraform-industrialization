@@ -3,7 +3,7 @@ resource "aws_autoscaling_group" "front" {
   desired_capacity     = 1
   max_size             = 1
   min_size             = 1
-  vpc_zone_identifier  = [var.subnet]
+  vpc_zone_identifier  = var.subnets
   
   launch_template {
     id      = aws_launch_template.front.id

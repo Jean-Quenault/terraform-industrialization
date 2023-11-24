@@ -8,24 +8,10 @@ resource "aws_lb" "front" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.front_lb.id]
-  subnets            = [aws_subnet.euw3_az2.id, aws_subnet.euw3_az1.id, aws_subnet.euw3_az3.id]
+  subnets            = var.subnets
   enable_deletion_protection = false
 }
 
-resource "aws_subnet" "euw3_az2" {
-  vpc_id            = var.vpc_id
-  availability_zone = "eu-west-3b"
-}
-
-resource "aws_subnet" "euw3_az1" {
-  vpc_id            = var.vpc_id
-  availability_zone = "eu-west-3a"
-}
-
-resource "aws_subnet" "euw3_az3" {
-  vpc_id            = var.vpc_id
-  availability_zone = "eu-west-3c"
-}
 
 resource "aws_lb_listener" "https" {
   load_balancer_arn = aws_lb.front.arn
