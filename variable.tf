@@ -14,3 +14,10 @@ variable "subnet" {
   description = "Front and back load balancer subnet"
   type        = string
 }
+
+
+
+/* 
+
+
+*/
