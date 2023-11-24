@@ -19,3 +19,8 @@ variable "certificate_front" {
   description = "Front certificate ARN"
   type        = string
 }
+
+variable "subnet" {
+  description = "Front and back load balancer subnet"
+  type        = string
+}
