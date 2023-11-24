@@ -7,7 +7,7 @@ variable "vpc_id" {
 
 variable "subnets" {
   description = "Front and back load balancer subnet"
-  type        = string
+  type        = list(string)
 }
 
 variable "region" {
