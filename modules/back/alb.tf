@@ -1,5 +1,5 @@
 data "aws_acm_certificate" "certificate_back_arn" {
-  domain   = "back.jeanops.net"
+  domain   = "backend.jeanops.net"
   statuses = ["ISSUED"]
 }
 
