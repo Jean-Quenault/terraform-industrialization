@@ -34,3 +34,8 @@ variable "back_image_tag" {
   description = "Tag from Docker image"
   type        = string
 }
+
+variable "certificate_back" {
+  description = "Back certificate ARN"
+  type        = string
+}

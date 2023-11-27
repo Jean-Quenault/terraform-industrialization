@@ -24,6 +24,7 @@ module "back" {
   vpc_id            = var.vpc_id
   subnets           = [var.subnet1, var.subnet2, var.subnet3]
   ecr_back_url      = "980377181750.dkr.ecr.eu-west-3.amazonaws.com/back"
+  certificate_back = "arn:aws:acm:eu-west-3:980377181750:certificate/699a4f22-8b41-4ac2-98bc-337972b60c49"
   back_port         = "4000"
   back_image        = "back"
   back_image_tag    = "13"
