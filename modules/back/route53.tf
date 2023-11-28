@@ -1,6 +1,6 @@
 resource "aws_route53_record" "back" {
     zone_id = "Z06335482BEM13BVT0JEQ"
-    name    = "backend.jeanops.net"
+    name    ="back.jeanops.net"
     type    = "A"
 
     alias {
