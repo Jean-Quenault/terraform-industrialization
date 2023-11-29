@@ -29,13 +29,15 @@ resource "aws_launch_template" "front" {
     # Security groups to associate with the instance
     security_groups     = [aws_security_group.front_asg.id]
   }
+  
+    user_data = data.template_file.user_data.rendered
 
-    user_data = base64encode(<<EOF
+    /*user_data = base64encode(<<EOF
         #!/bin/bash
         aws ecr get-login-password --region ${var.region} | docker login --username AWS --password-stdin ${var.ecr_front_url}
         docker run -d -p ${var.front_port}:80 ${var.ecr_front_url}/${var.front_image}:${var.front_image_tag}
     EOF
-    )
+    )*/
 
   iam_instance_profile {
         arn             = aws_iam_instance_profile.front_instance_profile.arn
