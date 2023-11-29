@@ -11,14 +11,6 @@ resource "aws_security_group" "front_asg" {
     security_groups = [aws_security_group.front_lb.id]
   }
 
-  ingress {
-    description      = "HTTPS traffic from load balancer to auto scaling group"
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
   egress {
     description = "All traffic to everywhere"
     from_port        = 0
