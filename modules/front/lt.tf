@@ -30,7 +30,7 @@ resource "aws_launch_template" "front" {
     security_groups     = [aws_security_group.front_asg.id]
   }
   
-    user_data = data.template_file.user_data.rendered
+    user_data = base64encode(data.template_file.user_data.rendered)
 
     /*user_data = base64encode(<<EOF
         #!/bin/bash
