@@ -31,9 +31,9 @@ resource "aws_launch_template" "front" {
   }
   
     user_data = base64encode(<<EOF
-        #!/bin/bash
-        aws ecr get-login-password --region ${var.region} | docker login --username AWS --password-stdin ${var.ecr_front_url}
-        docker run -d -p ${var.front_port}:80 ${var.ecr_front_url}/${var.front_image}:${var.front_image_tag}
+#!/bin/bash
+aws ecr get-login-password --region ${var.region} | docker login --username AWS --password-stdin ${var.ecr_front_url}
+docker run -d -p ${var.front_port}:80 ${var.ecr_front_url}/${var.front_image}:${var.front_image_tag}
     EOF
     )
 
