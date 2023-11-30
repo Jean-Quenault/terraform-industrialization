@@ -31,9 +31,9 @@ resource "aws_launch_template" "back" {
   }
 
     user_data = base64encode(<<EOF
-        #!/bin/bash
-        aws ecr get-login-password --region ${var.region} | docker login --username AWS --password-stdin ${var.ecr_back_url}
-        docker run -d -p 80:${var.back_port} ${var.ecr_back_url}/${var.back_image}:${var.back_image_tag}
+#!/bin/bash
+aws ecr get-login-password --region ${var.region} | docker login --username AWS --password-stdin ${var.ecr_back_url}
+docker run -d -p 80:${var.back_port} ${var.ecr_back_url}/${var.back_image}:${var.back_image_tag}
     EOF
     )
 
